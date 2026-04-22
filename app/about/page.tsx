@@ -11,11 +11,11 @@ export default function About() {
 
         <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
               <span className="text-sm font-semibold text-blue-700">
                 ℹ️ About Our Service
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
               About Car Wash at Your
@@ -111,7 +111,7 @@ export default function About() {
                 },
               ].map((item, idx) => (
                 <div key={idx} className="group">
-                  <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
                     <div className="text-5xl mb-6">{item.icon}</div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {item.title}
@@ -200,7 +200,7 @@ export default function About() {
                       </div>
                     </div>
                   ) : (
-                    <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 h-full shadow-sm hover:shadow-lg">
+                    <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 h-full shadow-sm hover:shadow-lg">
                       <div className="text-5xl mb-6">{service.icon}</div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
                         {service.title}

@@ -61,11 +61,11 @@ Notes: ${formData.notes || "None"}`;
 
         <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
               <span className="text-sm font-semibold text-blue-700">
                 📋 Quick Booking
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
               Book Your Car Wash
@@ -361,7 +361,7 @@ Notes: ${formData.notes || "None"}`;
                 ].map((faq, idx) => (
                   <div key={idx} className="group relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-50/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                    <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                    <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm group-hover:shadow-md">
                       <h3 className="text-xl font-bold text-gray-900 mb-4">
                         {faq.question}
                       </h3>

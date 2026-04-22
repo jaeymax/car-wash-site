@@ -12,11 +12,11 @@ export default function Contact() {
 
         <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
               <span className="text-sm font-semibold text-blue-700">
                 📞 Get in Touch
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
               Let's Connect
@@ -54,8 +54,8 @@ export default function Contact() {
                     icon: "📱",
                     title: "Phone",
                     description: "Call us directly for immediate assistance",
-                    contact: "+233 XX XXX XXXX",
-                    link: "tel:+233XXXXXXXXX",
+                    contact: "+233535909835",
+                    link: "tel:+233535909835",
                   },
                   {
                     icon: "💬",
@@ -84,7 +84,7 @@ export default function Contact() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg"
+                        className="block bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg"
                       >
                         <div className="flex items-start space-x-4">
                           <div className="text-4xl flex-shrink-0">
@@ -106,7 +106,7 @@ export default function Contact() {
                     ) : item.link ? (
                       <a
                         href={item.link}
-                        className="block bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg"
+                        className="block bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg"
                       >
                         <div className="flex items-start space-x-4">
                           <div className="text-4xl flex-shrink-0">
@@ -126,7 +126,7 @@ export default function Contact() {
                         </div>
                       </a>
                     ) : (
-                      <div className="block bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
+                      <div className="block bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
                         <div className="flex items-start space-x-4">
                           <div className="text-4xl flex-shrink-0">
                             {item.icon}
@@ -278,7 +278,7 @@ export default function Contact() {
                     },
                   ].map((location, idx) => (
                     <div key={idx} className="group">
-                      <div className="relative flex items-center space-x-4 bg-white border border-gray-200 group-hover:border-blue-400 rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+                      <div className="relative flex items-center space-x-4 bg-white border border-gray-200 group-hover:border-gray-300 rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                         <div className="text-3xl flex-shrink-0">
                           {location.icon}
                         </div>

@@ -20,7 +20,7 @@ export default function Navbar() {
               🚗
             </div>
             <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
-              CarWash
+              MobileCarWash
             </span>
           </Link>
 

@@ -11,11 +11,11 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-40">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
               <span className="text-sm font-semibold text-blue-700">
                 🚗 Premium Mobile Car Wash Service
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
               Your Car Deserves
@@ -114,7 +114,7 @@ export default function Home() {
               },
             ].map((step, idx) => (
               <div key={idx} className="group">
-                <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-3xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
+                <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-3xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
                   <div className="text-6xl font-black text-blue-600 mb-4">
                     {step.number}
                   </div>
@@ -183,7 +183,7 @@ export default function Home() {
             ].map((service, idx) => (
               <div key={idx} className="group relative">
                 {service.popular && (
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute -top-5 z-[1000] left-1/2 transform -translate-x-1/2">
                     <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                       Most Popular
                     </div>
@@ -191,7 +191,7 @@ export default function Home() {
                 )}
 
                 <div
-                  className={`relative ${service.popular ? "bg-blue-600 text-white border border-blue-700" : "bg-white border border-gray-200 group-hover:border-blue-400"} rounded-3xl p-8 transition-all duration-300 shadow-md hover:shadow-lg h-full flex flex-col`}
+                  className={`relative ${service.popular ? "bg-blue-600 text-white border border-blue-700" : "bg-white border border-gray-200 group-hover:border-gray-300"} rounded-3xl p-8 transition-all duration-300 shadow-md hover:shadow-lg h-full flex flex-col`}
                 >
                   <div className="text-5xl mb-6">{service.icon}</div>
 
@@ -292,7 +292,7 @@ export default function Home() {
               },
             ].map((feature, idx) => (
               <div key={idx} className="group">
-                <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
+                <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
                   <div className="text-5xl mb-6">{feature.icon}</div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     {feature.title}
@@ -344,7 +344,7 @@ export default function Home() {
               },
             ].map((testimonial, idx) => (
               <div key={idx} className="group">
-                <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
+                <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
                   <div className="flex items-center mb-6">
                     <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
                       {testimonial.avatar}
