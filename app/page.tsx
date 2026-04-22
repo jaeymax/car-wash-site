@@ -18,14 +18,16 @@ export default function Home() {
             </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
-              Your Car Deserves
-              <span className="block text-blue-600">Premium Care</span>
+              Professional Cleaning
+              <span className="block text-blue-600">
+                Services at Your Doorstep
+              </span>
             </h1>
 
             <p className="text-xl lg:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
-              Professional car washing services delivered to your doorstep in
-              Accra. We combine expertise, premium products, and convenience
-              into one exceptional experience.
+              Expert car washing and home cleaning services delivered to your
+              location in Accra. We combine expertise, premium products, and
+              convenience into one exceptional experience.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -50,7 +52,7 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-gray-200">
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-black text-blue-600 mb-2">
-                  500+
+                  800+
                 </div>
                 <p className="text-gray-600 text-sm lg:text-base">
                   Happy Customers
@@ -58,10 +60,10 @@ export default function Home() {
               </div>
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-black text-blue-600 mb-2">
-                  2K+
+                  3K+
                 </div>
                 <p className="text-gray-600 text-sm lg:text-base">
-                  Cars Washed
+                  Services Completed
                 </p>
               </div>
               <div className="text-center">
@@ -73,6 +75,54 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview - New Section */}
+      <section className="py-24 px-4 relative bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+              Our Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Choose the service that suits your needs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {[
+              {
+                title: "🚗 Mobile Car Wash",
+                description:
+                  "Professional car washing services delivered to your doorstep. From basic exterior wash to complete interior and exterior detailing.",
+                icon: "🚗",
+                cta: "Book Car Wash",
+              },
+              {
+                title: "🧼 Home Cleaning",
+                description:
+                  "Expert home cleaning services for any space. Keep your home spotless with our professional cleaning team.",
+                icon: "🧼",
+                cta: "Book Home Cleaning",
+              },
+            ].map((service, idx) => (
+              <Link key={idx} href="/book" className="group relative">
+                <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-3xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg cursor-pointer h-full flex flex-col">
+                  <div className="text-5xl mb-6">{service.icon}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed flex-grow mb-6">
+                    {service.description}
+                  </p>
+                  <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 w-full">
+                    {service.cta}
+                  </button>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -95,21 +145,21 @@ export default function Home() {
                 number: "01",
                 title: "Choose Your Service",
                 description:
-                  "Select from our premium packages tailored to your car's needs. From basic exterior wash to full detailing.",
+                  "Select either car washing or home cleaning services tailored to your needs. From basic options to premium packages.",
                 icon: "🎯",
               },
               {
                 number: "02",
                 title: "Book in Seconds",
                 description:
-                  "Use our intuitive booking system to schedule at your preferred time. Instant WhatsApp confirmation.",
+                  "Use our intuitive booking system to schedule at your preferred time and location. Instant WhatsApp confirmation.",
                 icon: "📱",
               },
               {
                 number: "03",
                 title: "We Arrive & Deliver",
                 description:
-                  "Our professional team arrives fully equipped at your location. Enjoy sparkling clean results.",
+                  "Our professional team arrives fully equipped at your location. Enjoy sparkling clean results every time.",
                 icon: "✨",
               },
             ].map((step, idx) => (
@@ -132,12 +182,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services & Pricing - Premium */}
+      {/* Pricing - Car Wash */}
       <section className="py-24 px-4 relative bg-white">
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-              Our Services
+              Car Wash Pricing
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Premium packages designed for every vehicle and budget
@@ -240,6 +290,114 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing - Home Cleaning */}
+      <section className="py-24 px-4 relative bg-gray-50">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+              Home Cleaning Pricing
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Affordable packages for any home size and cleaning need
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Basic Cleaning",
+                price: "150",
+                icon: "🧹",
+                features: [
+                  "Living area & kitchen sweep",
+                  "Bathroom cleaning",
+                  "Dusting surfaces",
+                  "~1-2 hours",
+                ],
+              },
+              {
+                name: "Deep Cleaning",
+                price: "300",
+                icon: "🧽",
+                features: [
+                  "Complete home cleaning",
+                  "All surfaces scrubbed",
+                  "Windows & mirrors",
+                  "~3-4 hours",
+                ],
+              },
+              {
+                name: "Premium Cleaning",
+                price: "500",
+                icon: "✨",
+                features: [
+                  "Everything in Deep Cleaning",
+                  "Carpet shampooing",
+                  "Upholstery cleaning",
+                  "~5-6 hours",
+                ],
+                popular: true,
+              },
+            ].map((service, idx) => (
+              <div key={idx} className="group relative">
+                {service.popular && (
+                  <div className="absolute -top-5 z-[1000] left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+
+                <div
+                  className={`relative ${service.popular ? "bg-blue-600 text-white border border-blue-700" : "bg-white border border-gray-200 group-hover:border-gray-300"} rounded-3xl p-8 transition-all duration-300 shadow-md hover:shadow-lg h-full flex flex-col`}
+                >
+                  <div className="text-5xl mb-6">{service.icon}</div>
+
+                  <h3
+                    className={`text-3xl font-bold ${service.popular ? "text-white" : "text-gray-900"} mb-6`}
+                  >
+                    {service.name}
+                  </h3>
+
+                  <div className="mb-8">
+                    <div
+                      className={`text-5xl font-black ${service.popular ? "text-blue-100" : "text-blue-600"}`}
+                    >
+                      GH₵{service.price}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-4 mb-8 flex-grow">
+                    {service.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className={`flex items-start gap-3 ${service.popular ? "text-blue-100" : "text-gray-700"}`}
+                      >
+                        <span className="text-green-500 font-bold mt-1 flex-shrink-0">
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href="/book"
+                    className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
+                      service.popular
+                        ? "bg-white text-blue-600 hover:bg-blue-50"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    Book Now
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us - Enhanced */}
       <section className="py-24 px-4 relative bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -248,7 +406,8 @@ export default function Home() {
               Why Choose Us?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experience the difference premium service makes
+              Experience the difference premium service makes for both car wash
+              and home cleaning
             </p>
           </div>
 
@@ -315,7 +474,8 @@ export default function Home() {
               Loved by Our Customers
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real feedback from real customers in Accra
+              Real feedback from real customers in Accra who've used our car
+              wash and home cleaning services
             </p>
           </div>
 
@@ -382,8 +542,8 @@ export default function Home() {
             Ready for Excellence?
           </h2>
           <p className="text-xl lg:text-2xl text-gray-700 mb-12 leading-relaxed">
-            Join hundreds of satisfied customers who trust us with their
-            vehicles. Book your premium car wash experience today.
+            Join hundreds of satisfied customers who trust us with their car
+            wash and home cleaning needs. Book your service experience today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -406,7 +566,7 @@ export default function Home() {
 
           <p className="text-gray-600 text-sm mt-8">
             ✓ Instant WhatsApp confirmation • ✓ Flexible scheduling • ✓ 100%
-            satisfaction guarantee
+            satisfaction guarantee • ✓ Car Wash & Home Cleaning Services
           </p>
         </div>
       </section>

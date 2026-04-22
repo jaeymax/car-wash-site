@@ -24,8 +24,9 @@ export default function Contact() {
             </h1>
 
             <p className="text-xl lg:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
-              Have questions about our services? Want to book your first car
-              wash? We're here and ready to assist you. Reach out to us today!
+              Have questions about our car wash or home cleaning services? Want
+              to book? We're here and ready to assist you. Reach out to us
+              today!
             </p>
           </div>
         </div>
@@ -44,7 +45,7 @@ export default function Contact() {
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Connect with us through any of these channels. We're available
                   to answer your questions and help you schedule your car wash
-                  service.
+                  or home cleaning service.
                 </p>
               </div>
 
@@ -54,7 +55,7 @@ export default function Contact() {
                     icon: "📱",
                     title: "Phone",
                     description: "Call us directly for immediate assistance",
-                    contact: "+233535909835",
+                    contact: "+233535909835/+233506605648",
                     link: "tel:+233535909835",
                   },
                   {
@@ -158,8 +159,8 @@ export default function Contact() {
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Our online booking system makes it easy to schedule your car
-                  wash service in just a few minutes. Get instant WhatsApp
-                  confirmation!
+                  wash or home cleaning service in just a few minutes. Get
+                  instant WhatsApp confirmation!
                 </p>
               </div>
 
@@ -176,7 +177,7 @@ export default function Contact() {
                     href="/book"
                     className="group/btn inline-flex bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg gap-2"
                   >
-                    <span>Book Your Wash Now</span>
+                    <span>Book a Service Now</span>
                     <span className="group-hover/btn:translate-x-1 transition-transform">
                       →
                     </span>
@@ -234,7 +235,8 @@ export default function Contact() {
                   Our Service Area
                 </h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Professional mobile car washing throughout Accra
+                  Professional mobile car washing and home cleaning throughout
+                  Accra
                 </p>
               </div>
 
@@ -248,8 +250,8 @@ export default function Contact() {
                     <p className="text-gray-600 text-lg leading-relaxed">
                       Our fully equipped team travels to your location for
                       maximum convenience. Whether at home, work, or anywhere in
-                      Accra, we bring professional car cleaning services
-                      directly to you.
+                      Accra, we bring professional car washing and home cleaning
+                      services directly to you.
                     </p>
                   </div>
                 </div>
@@ -258,23 +260,23 @@ export default function Contact() {
                   {[
                     {
                       icon: "🏠",
-                      title: "Residential Areas",
-                      description: "Home driveway service",
+                      title: "Residential Service",
+                      description: "Home car wash & cleaning",
                     },
                     {
                       icon: "🏢",
                       title: "Business Districts",
-                      description: "Office parking lots",
+                      description: "Office parking & cleaning",
                     },
                     {
                       icon: "🛒",
                       title: "Shopping Centers",
-                      description: "Mall parking areas",
+                      description: "Mall parking service",
                     },
                     {
                       icon: "🏘️",
                       title: "Residential Estates",
-                      description: "Gated communities",
+                      description: "Gated community service",
                     },
                   ].map((location, idx) => (
                     <div key={idx} className="group">
@@ -307,8 +309,9 @@ export default function Contact() {
             Get Started Today
           </h2>
           <p className="text-xl lg:text-2xl text-gray-700 mb-12 leading-relaxed">
-            Whether you have questions or are ready to book, we're here to help.
-            Reach out now and let's get your car looking amazing!
+            Whether you have questions or are ready to book your car wash or
+            home cleaning service, we're here to help. Reach out now and let's
+            get started!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

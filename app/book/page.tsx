@@ -5,11 +5,13 @@ import { whatsappNumber } from "../constants";
 
 export default function Book() {
   const [formData, setFormData] = useState({
+    serviceType: "",
     name: "",
     phone: "",
     location: "",
     carType: "",
     service: "",
+    cleaningType: "",
     preferredTime: "",
     notes: "",
   });
@@ -30,21 +32,30 @@ export default function Book() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Create WhatsApp message
-    const message = `Hello, I want to book a car wash.
+    // Create WhatsApp message based on service type
+    let message = `Hello, I want to book a ${formData.serviceType === "car_wash" ? "car wash" : "home cleaning"} service.
 
 Name: ${formData.name}
 Phone: ${formData.phone}
-Location: ${formData.location}
+Location: ${formData.location}`;
+
+    if (formData.serviceType === "car_wash") {
+      message += `
 Car Type: ${formData.carType}
-Service: ${formData.service}
+Service: ${formData.service}`;
+    } else {
+      message += `
+Cleaning Type: ${formData.cleaningType}`;
+    }
+
+    message += `
 Preferred Time: ${formData.preferredTime || "Anytime"}
 Notes: ${formData.notes || "None"}`;
 
     // Encode message for URL
     const encodedMessage = encodeURIComponent(message);
 
-    // WhatsApp URL (replace with actual business number)
+    // WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     // Redirect to WhatsApp
@@ -68,13 +79,13 @@ Notes: ${formData.notes || "None"}`;
             </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
-              Book Your Car Wash
-              <span className="block text-blue-600">in Minutes</span>
+              Book a Service
+              <span className="block text-blue-600">Today</span>
             </h1>
 
             <p className="text-xl lg:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
-              Fill out the form below and we'll send you a confirmation via
-              WhatsApp instantly
+              Choose between our mobile car wash or home cleaning services and
+              we'll send you a confirmation via WhatsApp instantly
             </p>
           </div>
         </div>
@@ -95,6 +106,71 @@ Notes: ${formData.notes || "None"}`;
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8">
+                  {/* Service Type Selection */}
+                  <div className="pb-8 border-b border-gray-200">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                      Select Service Type
+                    </h2>
+
+                    <div className="space-y-4">
+                      <div className="flex gap-4">
+                        <label className="flex-1 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="serviceType"
+                            value="car_wash"
+                            checked={formData.serviceType === "car_wash"}
+                            onChange={handleChange}
+                            required
+                            className="sr-only"
+                          />
+                          <div
+                            className={`p-6 rounded-xl border-2 transition-all duration-300 ${
+                              formData.serviceType === "car_wash"
+                                ? "border-blue-600 bg-blue-50"
+                                : "border-gray-200 bg-white hover:border-gray-300"
+                            }`}
+                          >
+                            <div className="text-3xl mb-2">🚗</div>
+                            <div className="font-bold text-gray-900">
+                              Mobile Car Wash
+                            </div>
+                            <div className="text-sm text-gray-600 mt-1">
+                              Professional car cleaning
+                            </div>
+                          </div>
+                        </label>
+
+                        <label className="flex-1 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="serviceType"
+                            value="home_cleaning"
+                            checked={formData.serviceType === "home_cleaning"}
+                            onChange={handleChange}
+                            required
+                            className="sr-only"
+                          />
+                          <div
+                            className={`p-6 rounded-xl border-2 transition-all duration-300 ${
+                              formData.serviceType === "home_cleaning"
+                                ? "border-blue-600 bg-blue-50"
+                                : "border-gray-200 bg-white hover:border-gray-300"
+                            }`}
+                          >
+                            <div className="text-3xl mb-2">🏠</div>
+                            <div className="font-bold text-gray-900">
+                              Home Cleaning
+                            </div>
+                            <div className="text-sm text-gray-600 mt-1">
+                              Professional home cleaning
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Personal Information Section */}
                   <div className="pb-8 border-b border-gray-200">
                     <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -163,108 +239,120 @@ Notes: ${formData.notes || "None"}`;
                   </div>
 
                   {/* Service Details Section */}
-                  <div className="pb-8 border-b border-gray-200">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                      Service Details
-                    </h2>
+                  {formData.serviceType && (
+                    <div className="pb-8 border-b border-gray-200">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                        Service Details
+                      </h2>
 
-                    <div className="space-y-6">
-                      <div>
-                        <label
-                          htmlFor="carType"
-                          className="block text-sm font-semibold text-gray-900 mb-3"
-                        >
-                          Car Type <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          id="carType"
-                          name="carType"
-                          required
-                          value={formData.carType}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
-                        >
-                          <option value="" className="text-gray-700">
-                            Select car type
-                          </option>
-                          <option value="Saloon" className="text-gray-700">
-                            Saloon
-                          </option>
-                          <option value="SUV" className="text-gray-700">
-                            SUV
-                          </option>
-                          <option value="Pickup" className="text-gray-700">
-                            Pickup
-                          </option>
-                          <option value="Van" className="text-gray-700">
-                            Van
-                          </option>
-                          <option value="Hatchback" className="text-gray-700">
-                            Hatchback
-                          </option>
-                          <option value="Other" className="text-gray-700">
-                            Other
-                          </option>
-                        </select>
-                      </div>
+                      <div className="space-y-6">
+                        {formData.serviceType === "car_wash" ? (
+                          <>
+                            <div>
+                              <label
+                                htmlFor="carType"
+                                className="block text-sm font-semibold text-gray-900 mb-3"
+                              >
+                                Car Type{" "}
+                                <span className="text-red-500">*</span>
+                              </label>
+                              <select
+                                id="carType"
+                                name="carType"
+                                required={formData.serviceType === "car_wash"}
+                                value={formData.carType}
+                                onChange={handleChange}
+                                className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
+                              >
+                                <option value="">Select car type</option>
+                                <option value="Saloon">Saloon</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Pickup">Pickup</option>
+                                <option value="Van">Van</option>
+                                <option value="Hatchback">Hatchback</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
 
-                      <div>
-                        <label
-                          htmlFor="service"
-                          className="block text-sm font-semibold text-gray-900 mb-3"
-                        >
-                          Service Type <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          id="service"
-                          name="service"
-                          required
-                          value={formData.service}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
-                        >
-                          <option value="" className="text-gray-700">
-                            Select service
-                          </option>
-                          <option
-                            value="Basic Wash - GH₵ 50"
-                            className="text-gray-700"
-                          >
-                            Basic Wash - GH₵ 50
-                          </option>
-                          <option
-                            value="Interior Cleaning - GH₵ 80"
-                            className="text-gray-700"
-                          >
-                            Interior Cleaning - GH₵ 80
-                          </option>
-                          <option
-                            value="Full Wash - GH₵ 120"
-                            className="text-gray-700"
-                          >
-                            Full Wash - GH₵ 120
-                          </option>
-                        </select>
-                      </div>
+                            <div>
+                              <label
+                                htmlFor="service"
+                                className="block text-sm font-semibold text-gray-900 mb-3"
+                              >
+                                Service Type{" "}
+                                <span className="text-red-500">*</span>
+                              </label>
+                              <select
+                                id="service"
+                                name="service"
+                                required={formData.serviceType === "car_wash"}
+                                value={formData.service}
+                                onChange={handleChange}
+                                className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
+                              >
+                                <option value="">Select service</option>
+                                <option value="Basic Wash - GH₵ 50">
+                                  Basic Wash - GH₵ 50
+                                </option>
+                                <option value="Interior Cleaning - GH₵ 80">
+                                  Interior Cleaning - GH₵ 80
+                                </option>
+                                <option value="Full Wash - GH₵ 120">
+                                  Full Wash - GH₵ 120
+                                </option>
+                              </select>
+                            </div>
+                          </>
+                        ) : (
+                          <div>
+                            <label
+                              htmlFor="cleaningType"
+                              className="block text-sm font-semibold text-gray-900 mb-3"
+                            >
+                              Cleaning Type{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                              id="cleaningType"
+                              name="cleaningType"
+                              required={formData.serviceType === "home_cleaning"}
+                              value={formData.cleaningType}
+                              onChange={handleChange}
+                              className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
+                            >
+                              <option value="">Select cleaning type</option>
+                              <option value="Basic Cleaning - GH₵ 150">
+                                Basic Cleaning - GH₵ 150
+                              </option>
+                              <option value="Deep Cleaning - GH₵ 300">
+                                Deep Cleaning - GH₵ 300
+                              </option>
+                              <option value="Premium Cleaning - GH₵ 500">
+                                Premium Cleaning - GH₵ 500
+                              </option>
+                            </select>
+                          </div>
+                        )}
 
-                      <div>
-                        <label
-                          htmlFor="preferredTime"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
-                        >
-                          Preferred Date/Time
-                        </label>
-                        <input
-                          type="datetime-local"
-                          id="preferredTime"
-                          name="preferredTime"
-                          value={formData.preferredTime}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
-                        />
+                        <div>
+                          <label
+                            htmlFor="preferredTime"
+                            className="block text-sm font-semibold text-gray-900 mb-3"
+                          >
+                            Preferred Date/Time
+                          </label>
+                          <input
+                            type="datetime-local"
+                            id="preferredTime"
+                            name="preferredTime"
+                            value={formData.preferredTime}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Additional Information Section */}
                   <div className="pb-8">
@@ -294,7 +382,8 @@ Notes: ${formData.notes || "None"}`;
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-bold text-lg transform hover:scale-105 shadow-lg hover:shadow-blue-600/50"
+                    disabled={!formData.serviceType}
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-bold text-lg transform hover:scale-105 shadow-lg hover:shadow-blue-600/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     Send Booking via WhatsApp
                   </button>
@@ -318,8 +407,13 @@ Notes: ${formData.notes || "None"}`;
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Booking Submitted!
               </h2>
-              <p className="text-xl text-gray-700">
-                You'll be redirected to WhatsApp to confirm your booking.
+              <p className="text-xl text-gray-700 mb-6">
+                You'll be redirected to WhatsApp to confirm your{" "}
+                {formData.serviceType === "car_wash" ? "car wash" : "home cleaning"}{" "}
+                booking.
+              </p>
+              <p className="text-gray-600">
+                Make sure WhatsApp is installed on your device.
               </p>
             </div>
           )}
@@ -337,40 +431,65 @@ Notes: ${formData.notes || "None"}`;
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    question: "How long does a wash take?",
-                    answer:
-                      "Basic Wash: 30-40 minutes | Interior Cleaning: 40-50 minutes | Full Service: 60-90 minutes",
-                  },
-                  {
-                    question: "Do you provide water supply?",
-                    answer:
-                      "Yes, we bring our own water supply and equipment. No setup needed on your part.",
-                  },
-                  {
-                    question: "What payment methods do you accept?",
-                    answer:
-                      "Mobile Money (Momo, Airtel Money), Cash, or Card transfers. Discuss with our team.",
-                  },
-                  {
-                    question: "Can I reschedule my booking?",
-                    answer:
-                      "Yes! Contact us via WhatsApp at least 24 hours before your scheduled service.",
-                  },
-                ].map((faq, idx) => (
-                  <div key={idx} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-50/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                    <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
-                        {faq.question}
-                      </h3>
-                      <p className="text-gray-700 text-lg leading-relaxed">
-                        {faq.answer}
-                      </p>
+                {(formData.serviceType === "car_wash"
+                  ? [
+                      {
+                        question: "How long does a car wash take?",
+                        answer:
+                          "Basic Wash: 30-40 minutes | Interior Cleaning: 40-50 minutes | Full Service: 60-90 minutes",
+                      },
+                      {
+                        question: "Do you provide water supply?",
+                        answer:
+                          "Yes, we bring our own water supply and equipment. No setup needed on your part.",
+                      },
+                      {
+                        question: "What payment methods do you accept?",
+                        answer:
+                          "Mobile Money (Momo, Airtel Money), Cash, or Card transfers. Discuss with our team.",
+                      },
+                      {
+                        question: "Can I reschedule my booking?",
+                        answer:
+                          "Yes! Contact us via WhatsApp at least 24 hours before your scheduled service.",
+                      },
+                    ]
+                  : [
+                      {
+                        question: "How long does home cleaning take?",
+                        answer:
+                          "Basic: 1-2 hours | Deep: 3-4 hours | Premium: 5-6 hours (varies by home size)",
+                      },
+                      {
+                        question: "What's included in cleaning?",
+                        answer:
+                          "Basic includes living areas and bathrooms. Deep includes deep scrubbing. Premium includes carpets and upholstery.",
+                      },
+                      {
+                        question: "Do you bring cleaning supplies?",
+                        answer:
+                          "Yes! We bring all necessary cleaning supplies and equipment. No need to provide anything.",
+                      },
+                      {
+                        question: "Can I reschedule my booking?",
+                        answer:
+                          "Yes! Contact us via WhatsApp at least 24 hours before your scheduled cleaning.",
+                      },
+                    ]
+                  )
+                  .map((faq, idx) => (
+                    <div key={idx} className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-50/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                      <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">
+                          {faq.question}
+                        </h3>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           )}
