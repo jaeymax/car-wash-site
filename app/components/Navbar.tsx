@@ -19,8 +19,8 @@ export default function Navbar() {
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-white font-bold text-lg group-hover:shadow-lg group-hover:shadow-blue-600/50 transition-all duration-300">
               🚗
             </div>
-            <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
-              MobileCarWash
+            <span className="text-lg md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
+              MobileCarWash & Cleaning Services
             </span>
           </Link>
 

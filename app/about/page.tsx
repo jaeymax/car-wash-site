@@ -18,13 +18,13 @@ export default function About() {
             </div> */}
 
             <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
-              About Car Wash at Your
-              <span className="block text-blue-600">Doorstep</span>
+              About Our Cleaning
+              <span className="block text-blue-600">Services</span>
             </h1>
 
             <p className="text-xl lg:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
-              Learn more about our mission to revolutionize car cleaning
-              services in Accra, Ghana
+              Learn more about our mission to provide professional mobile car
+              wash and home cleaning services in Accra, Ghana
             </p>
           </div>
         </div>
@@ -40,8 +40,8 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                We're on a mission to make car cleaning convenient,
-                professional, and accessible
+                We're on a mission to make professional cleaning services
+                convenient, professional, and accessible to all
               </p>
             </div>
 
@@ -50,10 +50,10 @@ export default function About() {
                 <div className="text-center">
                   <div className="text-8xl mb-8">🎯</div>
                   <p className="text-2xl lg:text-3xl text-gray-800 leading-relaxed font-light max-w-2xl mx-auto">
-                    To provide convenient, professional car washing services
-                    directly at our customers' doorsteps in Accra, Ghana. We
-                    believe everyone deserves a clean, well-maintained vehicle
-                    without the hassle of traditional car wash centers.
+                    To provide convenient, professional car washing and home
+                    cleaning services directly at our customers' doorsteps in
+                    Accra, Ghana. We believe everyone deserves premium cleaning
+                    services without the hassle of traditional centers.
                   </p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function About() {
                 Why Choose Us?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover what sets our service apart from the competition
+                Discover what sets our car wash and home cleaning services apart
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function About() {
                   icon: "🏠",
                   title: "Ultimate Convenience",
                   description:
-                    "We come to you - home, office, or anywhere in Accra. No need to drive to a car wash center.",
+                    "We come to you - home, office, or anywhere in Accra. No need to drive to service centers.",
                 },
                 {
                   icon: "👨‍🔧",
@@ -132,97 +132,196 @@ export default function About() {
                 Our Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive car cleaning services tailored to your specific
-                needs
+                Premium car wash and home cleaning packages for every need
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: "🚿",
-                  title: "Basic Wash",
-                  price: "GH₵ 50",
-                  features: [
-                    "Exterior cleaning & rinse",
-                    "Wheel & tire cleaning",
-                    "Quick dry service",
-                  ],
-                },
-                {
-                  icon: "🧼",
-                  title: "Interior Cleaning",
-                  price: "GH₵ 80",
-                  features: [
-                    "Complete interior vacuum",
-                    "Dashboard & console wipe",
-                    "Window cleaning inside",
-                  ],
-                },
-                {
-                  icon: "✨",
-                  title: "Full Service Wash",
-                  price: "GH₵ 120",
-                  badge: "Most Popular",
-                  features: [
-                    "Everything in Basic Wash",
-                    "Complete Interior Cleaning",
-                    "Wax protection & tire shine",
-                  ],
-                  isPrimary: true,
-                },
-              ].map((service, idx) => (
-                <div key={idx} className="group relative">
-                  {service.isPrimary ? (
-                    <div className="relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 transition-all duration-300 h-full border border-blue-700 shadow-md">
-                      <div className="text-5xl mb-6">{service.icon}</div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
-                        {service.title}
-                      </h3>
-                      <div className="text-4xl font-black text-blue-100 mb-4">
-                        {service.price}
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Car Wash Services */}
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="text-5xl">🚗</div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-gray-900">
+                      Mobile Car Wash
+                    </h3>
+                    <p className="text-gray-600">
+                      Professional service at your location
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    {
+                      title: "Basic Wash",
+                      price: "GH₵ 50",
+                      features: [
+                        "Exterior wash & rinse",
+                        "Wheel cleaning",
+                        "Quick dry",
+                      ],
+                    },
+                    {
+                      title: "Interior Cleaning",
+                      price: "GH₵ 80",
+                      features: [
+                        "Interior vacuum",
+                        "Dashboard wipe",
+                        "Window cleaning",
+                      ],
+                    },
+                    {
+                      title: "Full Service Wash",
+                      price: "GH₵ 120",
+                      features: [
+                        "Complete exterior",
+                        "Interior cleaning",
+                        "Wax & tire shine",
+                      ],
+                      badge: "Most Popular",
+                    },
+                  ].map((service, idx) => (
+                    <div
+                      key={idx}
+                      className={`rounded-xl p-6 border-2 ${
+                        service.badge
+                          ? "bg-blue-600 text-white border-blue-700"
+                          : "bg-white border-gray-200 hover:border-gray-300"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <h4
+                          className={`font-bold text-lg ${service.badge ? "text-white" : "text-gray-900"}`}
+                        >
+                          {service.title}
+                        </h4>
+                        <span
+                          className={`font-bold text-xl ${service.badge ? "text-blue-100" : "text-blue-600"}`}
+                        >
+                          {service.price}
+                        </span>
                       </div>
                       {service.badge && (
-                        <div className="inline-block bg-yellow-400/80 text-blue-900 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                        <div className="inline-block bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-4">
                           {service.badge}
                         </div>
                       )}
-                      <div className="space-y-3">
+                      <ul className="space-y-2">
                         {service.features.map((feature, fidx) => (
-                          <div
+                          <li
                             key={fidx}
-                            className="flex items-center gap-3 text-blue-100"
+                            className={`flex items-center gap-2 ${service.badge ? "text-blue-100" : "text-gray-700"}`}
                           >
-                            <span className="text-yellow-300 font-bold">✓</span>
-                            <span>{feature}</span>
-                          </div>
+                            <span
+                              className={
+                                service.badge
+                                  ? "text-yellow-300"
+                                  : "text-green-500"
+                              }
+                            >
+                              ✓
+                            </span>
+                            {feature}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                  ) : (
-                    <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-2xl p-8 transition-all duration-300 h-full shadow-sm hover:shadow-lg">
-                      <div className="text-5xl mb-6">{service.icon}</div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {service.title}
-                      </h3>
-                      <div className="text-3xl font-bold text-blue-600 mb-6">
-                        {service.price}
-                      </div>
-                      <div className="space-y-3">
-                        {service.features.map((feature, fidx) => (
-                          <div
-                            key={fidx}
-                            className="flex items-center gap-3 text-gray-700"
-                          >
-                            <span className="text-green-500 font-bold">✓</span>
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Home Cleaning Services */}
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="text-5xl">🏠</div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-gray-900">
+                      Home Cleaning
+                    </h3>
+                    <p className="text-gray-600">
+                      Complete home cleaning solutions
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    {
+                      title: "Basic Cleaning",
+                      price: "GH₵ 150",
+                      features: [
+                        "Living areas",
+                        "Bathroom cleaning",
+                        "Dusting surfaces",
+                      ],
+                    },
+                    {
+                      title: "Deep Cleaning",
+                      price: "GH₵ 300",
+                      features: [
+                        "Complete home clean",
+                        "All surfaces scrubbed",
+                        "Windows & mirrors",
+                      ],
+                    },
+                    {
+                      title: "Premium Cleaning",
+                      price: "GH₵ 500",
+                      features: [
+                        "Everything + carpet",
+                        "Upholstery cleaning",
+                        "Deep sanitization",
+                      ],
+                      badge: "Most Popular",
+                    },
+                  ].map((service, idx) => (
+                    <div
+                      key={idx}
+                      className={`rounded-xl p-6 border-2 ${
+                        service.badge
+                          ? "bg-blue-600 text-white border-blue-700"
+                          : "bg-white border-gray-200 hover:border-gray-300"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <h4
+                          className={`font-bold text-lg ${service.badge ? "text-white" : "text-gray-900"}`}
+                        >
+                          {service.title}
+                        </h4>
+                        <span
+                          className={`font-bold text-xl ${service.badge ? "text-blue-100" : "text-blue-600"}`}
+                        >
+                          {service.price}
+                        </span>
+                      </div>
+                      {service.badge && (
+                        <div className="inline-block bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-4">
+                          {service.badge}
+                        </div>
+                      )}
+                      <ul className="space-y-2">
+                        {service.features.map((feature, fidx) => (
+                          <li
+                            key={fidx}
+                            className={`flex items-center gap-2 ${service.badge ? "text-blue-100" : "text-gray-700"}`}
+                          >
+                            <span
+                              className={
+                                service.badge
+                                  ? "text-yellow-300"
+                                  : "text-green-500"
+                              }
+                            >
+                              ✓
+                            </span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -233,11 +332,11 @@ export default function About() {
                 <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-8">
                   Ready to Experience
                   <br />
-                  the Difference?
+                  Premium Cleaning?
                 </h2>
                 <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
                   Join hundreds of satisfied customers in Accra who trust us
-                  with their car cleaning needs.
+                  with their car wash and home cleaning needs.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -245,7 +344,7 @@ export default function About() {
                     href="/book"
                     className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-5 rounded-full font-bold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-600/50 flex items-center justify-center gap-2"
                   >
-                    <span>Book Your Service Now</span>
+                    <span>Book a Service Now</span>
                     <span className="group-hover:translate-x-1 transition-transform">
                       →
                     </span>
