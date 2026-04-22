@@ -55,7 +55,7 @@ export default function Contact() {
                     icon: "📱",
                     title: "Phone",
                     description: "Call us directly for immediate assistance",
-                    contact: "+233535909835/+233506605648",
+                    contact: "+233535909835\n+233506605648\n+233243733956",
                     link: "tel:+233535909835",
                   },
                   {
