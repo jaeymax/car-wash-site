@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { whatsappNumber } from "../constants";
 
 export default function Book() {
   const [formData, setFormData] = useState({
@@ -44,36 +45,34 @@ Notes: ${formData.notes || "None"}`;
     const encodedMessage = encodeURIComponent(message);
 
     // WhatsApp URL (replace with actual business number)
-    const whatsappUrl = `https://wa.me/233508637014?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     // Redirect to WhatsApp
     window.location.href = whatsappUrl;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 via-transparent to-transparent"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <section className="relative overflow-hidden pt-12">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-transparent to-transparent opacity-60"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 backdrop-blur-xl border border-blue-500/30 mb-8 hover:bg-blue-500/20 transition-all duration-300">
-              <span className="text-sm font-semibold text-blue-300">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
+              <span className="text-sm font-semibold text-blue-700">
                 📋 Quick Booking
               </span>
             </div>
 
-            <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-white">
+            <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
               Book Your Car Wash
-              <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
-                in Minutes
-              </span>
+              <span className="block text-blue-600">in Minutes</span>
             </h1>
 
-            <p className="text-xl lg:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl lg:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
               Fill out the form below and we'll send you a confirmation via
               WhatsApp instantly
             </p>
@@ -82,23 +81,23 @@ Notes: ${formData.notes || "None"}`;
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-24 px-4 relative">
+      <section className="py-24 px-4 relative bg-gray-50">
         <div className="max-w-3xl mx-auto">
           {!submitted ? (
             <>
-              <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 lg:p-12">
+              <div className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-12 shadow-lg">
                 <div className="mb-12">
-                  <p className="text-center text-gray-300 text-lg">
+                  <p className="text-center text-gray-600 text-lg">
                     All fields marked with{" "}
-                    <span className="text-pink-400 font-bold">*</span> are
+                    <span className="text-red-500 font-bold">*</span> are
                     required
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8">
                   {/* Personal Information Section */}
-                  <div className="pb-8 border-b border-gray-700/50">
-                    <h2 className="text-2xl font-bold text-white mb-6">
+                  <div className="pb-8 border-b border-gray-200">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
                       Your Information
                     </h2>
 
@@ -106,9 +105,9 @@ Notes: ${formData.notes || "None"}`;
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
+                          className="block text-sm font-semibold text-gray-900 mb-3"
                         >
-                          Full Name <span className="text-pink-400">*</span>
+                          Full Name <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -117,7 +116,7 @@ Notes: ${formData.notes || "None"}`;
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900 placeholder-gray-400"
                           placeholder="e.g., John Doe"
                         />
                       </div>
@@ -125,9 +124,9 @@ Notes: ${formData.notes || "None"}`;
                       <div>
                         <label
                           htmlFor="phone"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
+                          className="block text-sm font-semibold text-gray-900 mb-3"
                         >
-                          Phone Number <span className="text-pink-400">*</span>
+                          Phone Number <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="tel"
@@ -136,7 +135,7 @@ Notes: ${formData.notes || "None"}`;
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900 placeholder-gray-400"
                           placeholder="e.g., 024 123 4567"
                         />
                       </div>
@@ -144,10 +143,10 @@ Notes: ${formData.notes || "None"}`;
                       <div>
                         <label
                           htmlFor="location"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
+                          className="block text-sm font-semibold text-gray-900 mb-3"
                         >
                           Location in Accra{" "}
-                          <span className="text-pink-400">*</span>
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -156,7 +155,7 @@ Notes: ${formData.notes || "None"}`;
                           required
                           value={formData.location}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900 placeholder-gray-400"
                           placeholder="e.g., East Legon, Cantonments"
                         />
                       </div>
@@ -164,8 +163,8 @@ Notes: ${formData.notes || "None"}`;
                   </div>
 
                   {/* Service Details Section */}
-                  <div className="pb-8 border-b border-gray-700/50">
-                    <h2 className="text-2xl font-bold text-white mb-6">
+                  <div className="pb-8 border-b border-gray-200">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
                       Service Details
                     </h2>
 
@@ -173,9 +172,9 @@ Notes: ${formData.notes || "None"}`;
                       <div>
                         <label
                           htmlFor="carType"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
+                          className="block text-sm font-semibold text-gray-900 mb-3"
                         >
-                          Car Type <span className="text-pink-400">*</span>
+                          Car Type <span className="text-red-500">*</span>
                         </label>
                         <select
                           id="carType"
@@ -183,7 +182,7 @@ Notes: ${formData.notes || "None"}`;
                           required
                           value={formData.carType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
                         >
                           <option value="" className="text-gray-700">
                             Select car type
@@ -212,9 +211,9 @@ Notes: ${formData.notes || "None"}`;
                       <div>
                         <label
                           htmlFor="service"
-                          className="block text-sm font-semibold text-gray-300 mb-3"
+                          className="block text-sm font-semibold text-gray-900 mb-3"
                         >
-                          Service Type <span className="text-pink-400">*</span>
+                          Service Type <span className="text-red-500">*</span>
                         </label>
                         <select
                           id="service"
@@ -222,7 +221,7 @@ Notes: ${formData.notes || "None"}`;
                           required
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
                         >
                           <option value="" className="text-gray-700">
                             Select service
@@ -261,7 +260,7 @@ Notes: ${formData.notes || "None"}`;
                           name="preferredTime"
                           value={formData.preferredTime}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400"
+                          className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900"
                         />
                       </div>
                     </div>
@@ -269,14 +268,14 @@ Notes: ${formData.notes || "None"}`;
 
                   {/* Additional Information Section */}
                   <div className="pb-8">
-                    <h2 className="text-2xl font-bold text-white mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
                       Additional Information
                     </h2>
 
                     <div>
                       <label
                         htmlFor="notes"
-                        className="block text-sm font-semibold text-gray-300 mb-3"
+                        className="block text-sm font-semibold text-gray-900 mb-3"
                       >
                         Special Requests or Instructions
                       </label>
@@ -286,7 +285,7 @@ Notes: ${formData.notes || "None"}`;
                         value={formData.notes}
                         onChange={handleChange}
                         rows={4}
-                        className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 text-lg text-white placeholder-gray-400 resize-none"
+                        className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-lg text-gray-900 placeholder-gray-400 resize-none"
                         placeholder="e.g., There's a small dent on the door, handle with care. Please park in the driveway..."
                       />
                     </div>
@@ -295,15 +294,15 @@ Notes: ${formData.notes || "None"}`;
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-bold text-lg transform hover:scale-105 shadow-2xl hover:shadow-blue-500/50"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-bold text-lg transform hover:scale-105 shadow-lg hover:shadow-blue-600/50"
                   >
                     Send Booking via WhatsApp
                   </button>
                 </form>
 
-                <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/30 rounded-2xl backdrop-blur-sm">
-                  <p className="text-center text-gray-300 text-lg">
-                    <span className="font-semibold text-blue-400">
+                <div className="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
+                  <p className="text-center text-gray-700 text-lg">
+                    <span className="font-semibold text-blue-600">
                       💬 Next Step:
                     </span>{" "}
                     You'll be redirected to WhatsApp to complete your booking
@@ -314,12 +313,12 @@ Notes: ${formData.notes || "None"}`;
               </div>
             </>
           ) : (
-            <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12 text-center">
+            <div className="relative bg-white border border-gray-200 rounded-3xl p-12 text-center shadow-lg">
               <div className="text-8xl mb-8">✅</div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Booking Submitted!
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-gray-700">
                 You'll be redirected to WhatsApp to confirm your booking.
               </p>
             </div>
@@ -329,10 +328,10 @@ Notes: ${formData.notes || "None"}`;
           {!submitted && (
             <div className="mt-20">
               <div className="text-center mb-16">
-                <h2 className="text-5xl lg:text-6xl font-black text-white mb-6">
+                <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
                   Frequently Asked Questions
                 </h2>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                   Get answers to common booking questions
                 </p>
               </div>
@@ -361,12 +360,12 @@ Notes: ${formData.notes || "None"}`;
                   },
                 ].map((faq, idx) => (
                   <div key={idx} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
-                    <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 group-hover:border-blue-500/50 rounded-2xl p-8 transition-all duration-300">
-                      <h3 className="text-xl font-bold text-white mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-50/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-2xl p-8 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">
                         {faq.question}
                       </h3>
-                      <p className="text-gray-400 text-lg leading-relaxed">
+                      <p className="text-gray-700 text-lg leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

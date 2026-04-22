@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { whatsappNumber } from "../constants";
 
 export default function Contact() {
   return (
@@ -61,7 +62,7 @@ export default function Contact() {
                     title: "WhatsApp",
                     description: "Chat with us instantly for quick bookings",
                     contact: "Chat with us on WhatsApp",
-                    link: "https://wa.me/233XXXXXXXXX",
+                    link: `https://wa.me/${whatsappNumber}`,
                     external: true,
                   },
                   {
@@ -321,7 +322,7 @@ export default function Contact() {
               </span>
             </Link>
             <a
-              href="https://wa.me/233XXXXXXXXX"
+              href={`https://wa.me/${whatsappNumber}`}
               className="border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300"
               target="_blank"
               rel="noopener noreferrer"
