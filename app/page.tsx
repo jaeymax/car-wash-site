@@ -4,12 +4,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12">
+      <section className="relative overflow-hidden pt- borde border-gray-500">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-transparent to-transparent opacity-60"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-24 lg:py-40">
+        <div className="relative max-w-7xl mx-auto px-4 py-24 borde lg:py-40">
           <div className="text-center">
             {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 border border-blue-300 mb-8 hover:bg-blue-100 transition-all duration-300">
               <span className="text-sm font-semibold text-blue-700">
@@ -17,7 +17,11 @@ export default function Home() {
               </span>
             </div> */}
 
-            <h1 className="text-6xl lg:text-8xl font-black mb-8 leading-tight text-gray-900">
+            <h1 className="text-4xl bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent md:text-8xl font-black mb-8 leading-tight text-gray-900">
+              Mission Word Express Enterprise
+            </h1>
+
+            <h1 className="text-4xl md:text-8xl font-black mb-8 leading-tight text-gray-900">
               Professional Cleaning
               <span className="block text-blue-600">
                 Services at Your Doorstep
@@ -109,7 +113,7 @@ export default function Home() {
               },
             ].map((service, idx) => (
               <Link key={idx} href="/book" className="group relative">
-                <div className="relative bg-white border border-gray-200 group-hover:border-blue-400 rounded-3xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg cursor-pointer h-full flex flex-col">
+                <div className="relative bg-white border border-gray-200 group-hover:border-gray-300 rounded-3xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg cursor-pointer h-full flex flex-col">
                   <div className="text-5xl mb-6">{service.icon}</div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     {service.title}
